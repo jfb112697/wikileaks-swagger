@@ -54,7 +54,7 @@ const swaggerOptions = {
  * @swagger
  * /leaks:
  *  get:
- *    summary: Get a list of all document collections
+ *    summary: Returns a list of all document collections
  *    responses:
  *      '200':
  *        description: An array of key-value-pairs for every document collection and its corresponding URL
@@ -76,26 +76,26 @@ const swaggerOptions = {
  * @swagger
  * /leak-documents:
  *    get:
- *      summary: Gets all documents in a given collection
- *      parameters:
- *              name: leakName
- *              in: path
- *              description: Name of leak collection
- *              required: true
- *              schema:
- *                  type: string
- *                  format: string
+ *      summary: Returns a list of documents in a given collection
+ *      description: Returns an array of key-value-pairs where the key is the name of the document and the value is the corresponding URL
  *      responses:
  *          '200':
- *              description: An array of documents belonging to the given collection, and their corresponding URL
+ *              description: Succesfully returned document(s)
  *              content:
  *                  application/json:
  *                      schema:
  *                          type: array
  *                          items:
  *                              $ref: '#/components/schemas/NameUrl'
- *          
- * 
+ *    parameters:
+ *      - name: leakName
+ *        in: path
+ *        description: Name of document collection
+ *        required: true
+ *        schema:
+ *          type: string
+ *          format: string
+ *          example: 'Amazon Atlas'
  */
   app.get("/leak-documents/:leakName", (req, res) => {
       var leak = req.params.leakName;
