@@ -74,7 +74,7 @@ const swaggerOptions = {
 
 /**
  * @swagger
- * /leak-documents:
+ * /leak-documents/{leakName}:
  *    get:
  *      summary: Returns a list of documents in a given collection
  *      description: Returns an array of key-value-pairs where the key is the name of the document and the value is the corresponding URL
